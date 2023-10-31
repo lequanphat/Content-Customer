@@ -39,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
         ContentResolver contentResolver = getContentResolver();
         Cursor cursor = contentResolver.query(providerURI, null, null, null, null);
         if (cursor != null) {
+            Toast.makeText(this, "cursor not null", Toast.LENGTH_SHORT).show();
             while (cursor.moveToNext()) {
                 int id = cursor.getInt(cursor.getColumnIndex("id"));
                 String title = cursor.getString(cursor.getColumnIndex("title"));
                 String content = cursor.getString(cursor.getColumnIndex("content"));
                 String createdAt = cursor.getString(cursor.getColumnIndex("created_at"));
                 String updatedAt = cursor.getString(cursor.getColumnIndex("updated_at"));
-                Log.i("NOTHING", title);
+                Toast.makeText(this, "data here", Toast.LENGTH_SHORT).show();
             }
             cursor.close();
         }
-        Log.i("NOTHING", "abc");
+        Toast.makeText(this, "end", Toast.LENGTH_SHORT).show();
     }
 }
